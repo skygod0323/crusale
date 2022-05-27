@@ -555,7 +555,7 @@ function validProjectPost()
 											</div>
 										</div>
 										<div id="hbud" class="col-md-4 col-sm-12" <?php if($pb_type=='hourly'){ ?>style="display:block;"<?php } else {?>style="display:none;"<?php } ?> class="col-xs-5">
-											<input type="text" id="pb_rate" name="pb_rate" onBlur="if(this.value == '') { this.value='<?php echo $lang[436]; ?>'}" onFocus="if (this.value == '<?php echo $lang[436]; ?>') {this.value=''}" value="<?php echo $pb_rate; ?>" class="form-control"/>
+											<input type="number" id="pb_rate" name="pb_rate" onBlur="if(this.value == '') { this.value='<?php echo $lang[436]; ?>'}" onFocus="if (this.value == '<?php echo $lang[436]; ?>') {this.value=''}" value="<?php echo $pb_rate; ?>" class="form-control"/>
 										</div>
 									</div>
                                     <hr class="invis">
