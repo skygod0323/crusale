@@ -1,0 +1,30 @@
+[05-May-2017 17:44:29 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/freed/public_html/lib/connect.php:9) in /home/freed/public_html/sociallogin/loginwithfb/facebook.php on line 46
+[05-May-2017 17:44:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/freed/public_html/lib/connect.php:9) in /home/freed/public_html/sociallogin/loginwithfb/login-facebook.php on line 75
+[18-Aug-2021 16:06:35 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[18-Aug-2021 16:06:35 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[18-Aug-2021 16:06:35 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/crusale/public_html/sociallogin/function.php:8) in /home/crusale/public_html/sociallogin/loginwithfb/facebook.php on line 46
+[18-Aug-2021 16:06:35 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/crusale/public_html/sociallogin/function.php:8) in /home/crusale/public_html/sociallogin/loginwithfb/login-facebook.php on line 75
+[05-Jan-2022 18:22:43 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[05-Jan-2022 18:22:43 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[12-Jan-2022 16:06:21 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[12-Jan-2022 16:06:21 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[16-Jan-2022 18:06:28 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[16-Jan-2022 18:06:28 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[19-Jan-2022 16:13:22 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[19-Jan-2022 16:13:22 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[23-Jan-2022 19:39:45 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[23-Jan-2022 19:39:45 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[01-Feb-2022 16:25:29 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[01-Feb-2022 16:25:29 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[09-Feb-2022 18:08:56 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[09-Feb-2022 18:08:56 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[14-Feb-2022 15:45:36 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[14-Feb-2022 15:45:36 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[19-Feb-2022 21:30:36 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[19-Feb-2022 21:30:36 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[22-Feb-2022 18:43:56 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[22-Feb-2022 18:43:56 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[27-Feb-2022 20:13:12 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[27-Feb-2022 20:13:12 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[03-Mar-2022 15:39:41 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8
+[03-Mar-2022 15:39:41 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/sociallogin/function.php on line 8

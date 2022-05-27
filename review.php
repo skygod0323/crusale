@@ -1,0 +1,629 @@
+<?php
+ob_start();
+session_start();
+include "common.php";
+
+
+if(isset($_GET['u']))
+{
+	$usr_id=$_GET['u'];
+	$sql="select * from user where md5(usr_id)='".$usr_id."'";
+}
+else if($_SESSION['uid']!='')
+{
+	$usr_id=$_SESSION['uid'];
+	$sql="select * from user where usr_id='".$usr_id."'";	
+}
+else
+{
+	header("Location:login.php");
+}
+$res=mysql_query($sql);
+$row=mysql_fetch_object($res);
+?>
+   	<?php include "includes/header.php"; ?>
+<script language="javascript">
+function showFreelReview()
+{
+  //$.noConflict();
+  $('#review_asfreelancer').css({"display":"block"});
+  $('#review_asemployer').css({"display":"none"});
+  $('#FreelReview').addClass("ns_selected");
+  $('#EmplrReview').removeClass("ns_selected");	
+}
+function showEmplrReview()
+{
+  //$.noConflict();
+  $('#review_asfreelancer').css({"display":"none"});
+  $('#review_asemployer').css({"display":"block"});
+  $('#FreelReview').removeClass("ns_selected");
+  $('#EmplrReview').addClass("ns_selected");		
+}
+</script>
+<div class="row" id="feedback_section" >
+
+
+<script type="text/javascript">
+//function show_FeedbackFreelancer()
+//{
+//    //$.noConflict();
+//    $('#feedback_freelancer').css({"display":"block"});
+//    $('#feedback_employer').css({"display":"none"});
+//    
+//    $('#showFeedbackFreelancer').addClass("ns_selected");
+//    $('#showFeedbackEmployer').removeClass("ns_selected");
+//    
+//}
+//function show_FeedbackEmployer()
+//{
+//    //$.noConflict();
+//
+//    $('#feedback_freelancer').css({"display":"none"});
+//    $('#feedback_employer').css({"display":"block"});
+//    
+//    $('#showFeedbackFreelancer').removeClass("ns_selected");
+//    $('#showFeedbackEmployer').addClass("ns_selected");
+//    
+//}
+</script>
+    
+	<h2><?php echo $lang[527]; ?><?php echo $row->usr_name; ?></h2>
+			
+	<div class="clearfix">
+          <div class="ns_right ns_margin-10">
+        <a href="javascript:showFreelReview()" id="FreelReview" btntype="seller" class="ns_toggle-btn ns_btn-left ns_left ns_selected"><?php echo $lang[64]; ?></a> <!--Freelancer-->
+        <a href="javascript:showEmplrReview()" id="EmplrReview" btntype="buyer" class="ns_toggle-btn ns_btn-right ns_left"><?php echo $lang[60]; ?></a ><!--Employer -->
+        <div class="ns_clear"></div>
+    </div>
+		<div class="col-xs-12" id="review_asfreelancer" ><!--class="exp-col"-->
+        
+        <div class="form-horizontal">
+        
+        	<div class="form-group">
+				<label class="col-sm-5 control-label no-padding-right"><?php echo $lang[528]; ?></label>
+				<div class="col-sm-5">
+    	        <?php
+					$sql_fr_cmp="select count(rr_review) from review_rating where rr_completionrate='1' and rr_to_usr='".$row->usr_id."' and rr_prj_id not in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+            	    $res_fr_cmp=mysql_query($sql_fr_cmp);
+                	$row_fr_cmp=mysql_fetch_array($res_fr_cmp);
+				?>
+				<label class="form-label"><?php	echo $row_fr_cmp[0]; ?></label>
+				</div>
+			</div>
+	        <div class="form-group">
+				<label class="col-sm-5 control-label no-padding-right"><?php echo $lang[529]; ?></label>
+				<div class="col-sm-5">
+            	<?php
+					$sql_fr_fld="select count(rr_review) from review_rating where rr_completionrate='0' and rr_to_usr='".$row->usr_id."' and rr_prj_id not in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+	                $res_fr_fld=mysql_query($sql_fr_fld);
+    	            $row_fr_fld=mysql_fetch_array($res_fr_fld);
+				 ?>
+                	<label class="form-label"><?php echo $row_fr_fld[0]; ?></label>
+				</div>
+			</div>
+            <div class="form-group">
+				<label class="col-sm-5 control-label no-padding-right"><?php echo $lang[530]; ?></label>
+				<div class="col-sm-5">
+                	<label class="form-label"><?php echo ($row_fr_cmp[0] + $row_fr_fld[0]); ?></label>
+				</div>
+			</div>
+            <div class="form-group">
+				<label class="col-sm-5 control-label no-padding-right"><?php echo $lang[632]; ?></label>
+				<div class="col-sm-5" align="center">
+            	<?php
+					$sql_fr_avg="select count(*),sum(rr_work_quality),sum(rr_communication),sum(rr_expertise), sum(rr_work_hire_again), sum(rr_professionalism),sum(rr_completionrate) from review_rating where rr_to_usr='".$row->usr_id."' and rr_prj_id not in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+					$res_fr_avg=mysql_query($sql_fr_avg);
+					$row_fr_avg=mysql_fetch_array($res_fr_avg);
+				
+					if($row_fr_avg[0] !=0){
+						$avg_fr=(((($row_fr_avg[1]+$row_fr_avg[2]+$row_fr_avg[3]+$row_fr_avg[4]+$row_fr_avg[5])/$row_fr_avg[0])*10)+(($row_fr_avg[6]/$row_fr_avg[0])*100))/6;
+					}
+				?>
+                <label class="form-label">
+                	<div class="ns_stars-container ns_small" style="width:200px;">
+                    	<div class="ns_stars ns_small ">
+                        	<div class="ns_active" style="width:<?php if($row_fr_avg[0]==0){ echo "0"; } else { echo $avg_fr; } ?>%;"></div>
+                        </div>
+                        <span class="ns_rating-number ns_right"><?php echo number_format(($avg_fr/10),1); ?>&nbsp;<?php echo $lang[532]; ?></span>
+                    </div>
+                </label>
+				</div>
+			</div>
+        </div>
+
+           <div class="profile_content">
+            <ul id="sellerWorkHistory" class="worktab seller ns_work-history ns_border-top">
+				<?php
+				$sql_fr="select * from review_rating,project,user where rr_prj_id=prj_id and rr_from_usr=usr_id and rr_to_usr='".$row->usr_id."' and rr_review is not NULL and rr_prj_id not in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+//				$sql_fr="select count(*),sum(rr_work_quality),sum(rr_communication),sum(rr_expertise), sum(rr_work_hire_again), sum(rr_professionalism), sum(rr_completionrate) from review_rating where rr_to_usr='".$row->usr_id."' and rr_prj_id not in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+				$res_fr=mysql_query($sql_fr);
+				while($row_fr=mysql_fetch_object($res_fr))
+				{
+				?>
+                
+                <div class="col-xs-12 col-sm-12 widget-container-span">
+					<div class="widget-box">
+						<div class="widget-header header-color-dark" align="left">
+							<h5 class="bigger lighter" style="text-align:left"><a href="project.php?p=<?php echo $row_fr->prj_id; ?>"><?php echo $row_fr->prj_name; ?></a></h5>
+                            <?php
+								$sql_prj_amt="select bd_amount from bid where bd_usr_id='".$row->usr_id."' and bd_prj_id='".$row_fr->prj_id."'";
+								$res_prj_amt=mysql_query($sql_prj_amt);
+								$row_prj_amt=mysql_fetch_object($res_prj_amt);
+							?>
+                		    &nbsp;(<span class="ns_bold" style="width:100px; "><?php echo getCurrencySymbol(); ?><?php echo number_format($row_prj_amt->bd_amount,2); ?>&nbsp;<?php echo getCurrencyCode() ?></span>)
+							<div class="widget-toolbar">
+                                <div class="ns_stars ns_small ns_left" style="margin-top:10px;">
+                                <?php
+              				      $avg_rating=(($row_fr->rr_work_quality+$row_fr->rr_communication+$row_fr->rr_expertise+$row_fr->rr_work_hire_again+$row_fr->rr_professionalism)+($row_fr->rr_completionrate*10))/6;
+								?>
+									<div class="ns_active" style="width:<?php echo $avg_rating*10; ?>%;"></div>
+								</div>
+								<span class="ns_rating-number ns_right" style="padding-left:10px;"><?php echo number_format($avg_rating,1); ?></span>
+							</div>
+                            <div class="widget-toolbar no-border">
+								<label>
+									<?php
+                                	$diff=dateDifference($row_fr->rr_updated_date,date("Y-m-d"));
+									if($diff>0){	echo date("d M, Y",strtotime($row_fr->rr_updated_date));					}
+									else {		echo $lang[354];	}
+								?>
+								</label>
+							</div>
+						</div>
+						<div class="widget-body">
+							<div class="widget-toolbox">
+								<div class="btn-toolbar">
+	                                <div style="padding-left:10px;"><a class="ns_left ns_margin-r10" href="profile.php?u=<?php echo md5($row_fr->usr_id); ?>"><?php echo $row_fr->usr_name; ?></a></div>
+								</div>
+							</div>
+							<div class="widget-main padding-16" style="min-height:75px; text-align:left">
+                            <?php	if($row_fr->usr_image == ''){ ?>
+                      <img src="images/unknown.jpg" class="ns_left" style="height: 70px; width: 70px;">
+                        <?php }else{ ?>
+                      <img src="images/users/<?php echo $row_fr->usr_image; ?>" class="ns_left" style="height: 70px; width: 70px;">
+                        <?php } ?>
+								<span style="padding-left:15px;"><?php echo stripslashes($row_fr->rr_review); ?></span>
+							</div>
+                            <div align="justify" style="padding-left:10px;padding-right:10px;padding-bottom:15px;"><b><?php echo $lang[498]; ?></b>&nbsp;&nbsp;<?php echo $row_fr->prj_details; ?></div>
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+            </ul>
+           
+			</div>
+		</div>
+          <div class="col-xs-12" id="review_asemployer" style="display:none"><!--class="exp-col"-->
+             <?php
+			$sql_emp_rev="select count(*),sum(rr_work_quality),sum(rr_communication),sum(rr_expertise), sum(rr_work_hire_again), sum(rr_professionalism),sum(rr_completionrate),count(rr_review) from review_rating where rr_to_usr='".$row->usr_id."' and rr_prj_id in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+			$res_emp_rev=mysql_query($sql_emp_rev);
+			$row_emp_rev=mysql_fetch_array($res_emp_rev);
+					
+			if($row_emp_rev[0] !=0){
+				$avg_emp=(((($row_emp_rev[1]+$row_emp_rev[2]+$row_emp_rev[3]+$row_emp_rev[4]+$row_emp_rev[5])/$row_emp_rev[0])*10)+(($row_emp_rev[6]/$row_emp_rev[0])*100))/6;
+			}
+		 ?>
+         <div class="form-horizontal">
+         	<div class="form-group">
+				<label class="col-sm-5 control-label no-padding-right"><?php echo $lang[533]; ?></label>
+				<div class="col-sm-5">
+					<label class="form-label"><?php echo $row_emp_rev[7]; ?></label>
+				</div>
+			</div>
+            <div class="form-group">
+				<label class="col-sm-5 control-label no-padding-right"><?php echo $lang[531]; ?></label>
+				<div class="col-sm-5" align="center">
+                <label class="form-label">
+                	<div class="ns_stars-container ns_small" style="width:200px;">
+                    	<div class="ns_stars ns_small ">
+                        	<div class="ns_active" style="width:<?php if($row_emp_rev[0]==0){ echo "0"; } else { echo $avg_emp; } ?>%;"></div>
+                        </div>
+                        <span class="ns_rating-number ns_right"><?php echo number_format(($avg_emp/10),1); ?>&nbsp;<?php echo $lang[532]; ?></span>
+                    </div>
+                </label>
+				</div>
+			</div>
+         
+          </div>
+              <div class="profile_content">
+              
+              
+            <ul id="buyerWorkHistory" class="worktab buyer ns_work-history ns_border-top" style="display:block;">
+				
+				<?php
+				$sql_emp="select * from review_rating,project,user where rr_prj_id=prj_id and rr_from_usr=usr_id and rr_to_usr='".$row->usr_id."' and rr_review is not NULL and rr_prj_id in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+
+//				$sql_fr="select count(*),sum(rr_work_quality),sum(rr_communication),sum(rr_expertise), sum(rr_work_hire_again), sum(rr_professionalism), sum(rr_completionrate) from review_rating where rr_to_usr='".$row->usr_id."' and rr_prj_id not in(select prj_id from project where prj_usr_id='".$row->usr_id."')";
+				$res_emp=mysql_query($sql_emp);
+				while($row_emp=mysql_fetch_object($res_emp))
+				{
+				?>
+                <div class="col-xs-12 col-sm-12 widget-container-span">
+					<div class="widget-box">
+						<div class="widget-header header-color-dark" align="left">
+							<h5 class="bigger lighter" style="text-align:left"><a href="project.php?p=<?php echo $row_emp->prj_id; ?>"><?php echo $row_emp->prj_name; ?></a></h5>
+                           	<?php
+								$sql_prj_amt_emp="select bd_amount from bid where bd_usr_id='".$row_emp->usr_id."' and bd_prj_id='".$row_emp->prj_id."'";
+								$res_prj_amt_emp=mysql_query($sql_prj_amt_emp);
+								$row_prj_amt_emp=mysql_fetch_object($res_prj_amt_emp);
+							?>
+                		    &nbsp;(<span class="ns_bold" style="width:100px; "><?php echo getCurrencySymbol(); ?><?php echo number_format($row_prj_amt_emp->bd_amount,2); ?>&nbsp;<?php echo getCurrencyCode() ?></span>)
+							<div class="widget-toolbar">
+                                <div class="ns_stars ns_small ns_left" style="margin-top:10px;">
+                                <?php
+              				       $avg_rating=(($row_emp->rr_work_quality+$row_emp->rr_communication+$row_emp->rr_expertise+$row_emp->rr_work_hire_again+$row_emp->rr_professionalism)+($row_emp->rr_completionrate*10))/6;
+								?>
+									<div class="ns_active" style="width:<?php echo $avg_rating*10; ?>%;"></div>
+								</div>
+								<span class="ns_rating-number ns_right" style="padding-left:10px;"><?php echo number_format($avg_rating,1); ?></span>
+							</div>
+                            <div class="widget-toolbar no-border">
+								<label>
+									<?php
+              				         	$diff=dateDifference($row_emp->rr_updated_date,date("Y-m-d"));
+										if($diff>0){	echo date("d M, Y",strtotime($row_emp->rr_updated_date));	}
+										else {		echo $lang[354];	}
+									?>
+								</label>
+							</div>
+						</div>
+						<div class="widget-body">
+							<div class="widget-toolbox">
+								<div class="btn-toolbar">
+	                                <div style="padding-left:10px;"><a class="ns_left ns_margin-r10" href="profile.php?u=<?php echo md5($row_emp->usr_id); ?>"><?php echo $row_emp->usr_name; ?></a></div>
+								</div>
+							</div>
+							<div class="widget-main padding-16" style="min-height:75px; text-align:left">
+                            <?php	if($row_emp->usr_image == ''){ ?>
+		                      <img src="images/unknown.jpg" class="ns_left" style="height: 70px; width: 70px;">
+        		            <?php }else{ ?>
+                		      <img src="images/users/<?php echo $row_emp->usr_image; ?>" class="ns_left" style="height: 70px; width: 70px;">
+                        	<?php } ?>
+								<span style="padding-left:15px;"><?php echo stripslashes($row_emp->rr_review); ?></span>
+							</div>
+                            <div align="justify" style="padding-left:10px;padding-right:10px;padding-bottom:15px;"><b><?php echo $lang[498]; ?></b>&nbsp;&nbsp;<?php echo $row_emp->prj_details; ?></div>
+						</div>
+					</div>
+				</div>
+                
+				<?php } ?>
+
+            </ul>
+            </div>
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+</div>
+
+<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+
+	<script type="text/javascript">
+		window.jQuery || document.write("<script src='new_design/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+	</script>
+
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='new_design/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='new_design/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="new_design/js/bootstrap.min.js"></script>
+		<script src="new_design/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="new_design/js/excanvas.min.js"></script>
+		<![endif]-->
+
+		<script src="new_design/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="new_design/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="new_design/js/chosen.jquery.min.js"></script>
+		<script src="new_design/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="new_design/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="new_design/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="new_design/js/date-time/moment.min.js"></script>
+		<script src="new_design/js/date-time/daterangepicker.min.js"></script>
+		<script src="new_design/js/bootstrap-colorpicker.min.js"></script>
+		<script src="new_design/js/jquery.knob.min.js"></script>
+		<script src="new_design/js/jquery.autosize.min.js"></script>
+		<script src="new_design/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="new_design/js/jquery.maskedinput.min.js"></script>
+		<script src="new_design/js/bootstrap-tag.min.js"></script>
+
+                    <!-- ace scripts -->
+
+		<script src="new_design/js/ace-elements.min.js"></script>
+		<script src="new_design/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+                    <script type="text/javascript">
+			jQuery(function($) {
+				$('#id-disable-check').on('click', function() {
+					var inp = $('#form-input-readonly').get(0);
+					if(inp.hasAttribute('disabled')) {
+						inp.setAttribute('readonly' , 'true');
+						inp.removeAttribute('disabled');
+						inp.value="This text field is readonly!";
+					}
+					else {
+						inp.setAttribute('disabled' , 'disabled');
+						inp.removeAttribute('readonly');
+						inp.value="This text field is disabled!";
+					}
+				});
+			
+			
+				$(".chosen-select").chosen(); 
+				$('#chosen-multiple-style').on('click', function(e){
+					var target = $(e.target).find('input[type=radio]');
+					var which = parseInt(target.val());
+					if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
+					 else $('#form-field-select-4').removeClass('tag-input-style');
+				});
+			
+			
+				$('[data-rel=tooltip]').tooltip({container:'body'});
+				$('[data-rel=popover]').popover({container:'body'});
+				
+				$('textarea[class*=autosize]').autosize({append: "\n"});
+				$('textarea.limited').inputlimiter({
+					remText: '%n character%s remaining...',
+					limitText: 'max allowed : %n.'
+				});
+			
+				$.mask.definitions['~']='[+-]';
+				$('.input-mask-date').mask('99/99/9999');
+				$('.input-mask-phone').mask('(999) 999-9999');
+				$('.input-mask-eyescript').mask('~9.99 ~9.99 999');
+				$(".input-mask-product").mask("a*-999-a999",{placeholder:" ",completed:function(){alert("You typed the following: "+this.val());}});
+			
+			
+			
+				$( "#input-size-slider" ).css('width','200px').slider({
+					value:1,
+					range: "min",
+					min: 1,
+					max: 8,
+					step: 1,
+					slide: function( event, ui ) {
+						var sizing = ['', 'input-sm', 'input-lg', 'input-mini', 'input-small', 'input-medium', 'input-large', 'input-xlarge', 'input-xxlarge'];
+						var val = parseInt(ui.value);
+						$('#form-field-4').attr('class', sizing[val]).val('.'+sizing[val]);
+					}
+				});
+			
+				$( "#input-span-slider" ).slider({
+					value:1,
+					range: "min",
+					min: 1,
+					max: 12,
+					step: 1,
+					slide: function( event, ui ) {
+						var val = parseInt(ui.value);
+						$('#form-field-5').attr('class', 'col-xs-'+val).val('.col-xs-'+val);
+					}
+				});
+				
+				
+				$( "#slider-range" ).css('height','200px').slider({
+					orientation: "vertical",
+					range: true,
+					min: 0,
+					max: 100,
+					values: [ 17, 67 ],
+					slide: function( event, ui ) {
+						var val = ui.values[$(ui.handle).index()-1]+"";
+			
+						if(! ui.handle.firstChild ) {
+							$(ui.handle).append("<div class='tooltip right in' style='display:none;left:16px;top:-6px;'><div class='tooltip-arrow'></div><div class='tooltip-inner'></div></div>");
+						}
+						$(ui.handle.firstChild).show().children().eq(1).text(val);
+					}
+				}).find('a').on('blur', function(){
+					$(this.firstChild).hide();
+				});
+				
+				$( "#slider-range-max" ).slider({
+					range: "max",
+					min: 1,
+					max: 10,
+					value: 2
+				});
+				
+				$( "#eq > span" ).css({width:'90%', 'float':'left', margin:'15px'}).each(function() {
+					// read initial values from markup and remove that
+					var value = parseInt( $( this ).text(), 10 );
+					$( this ).empty().slider({
+						value: value,
+						range: "min",
+						animate: true
+						
+					});
+				});
+			
+				
+				$('#id-input-file-1 , #id-input-file-2').ace_file_input({
+					no_file:'No File ...',
+					btn_choose:'Choose',
+					btn_change:'Change',
+					droppable:false,
+					onchange:null,
+					thumbnail:false //| true | large
+					//whitelist:'gif|png|jpg|jpeg'
+					//blacklist:'exe|php'
+					//onchange:''
+					//
+				});
+				
+				$('#id-input-file-3').ace_file_input({
+					style:'well',
+					btn_choose:'Drop files here or click to choose',
+					btn_change:null,
+					no_icon:'icon-cloud-upload',
+					droppable:true,
+					thumbnail:'small'//large | fit
+					//,icon_remove:null//set null, to hide remove/reset button
+					/**,before_change:function(files, dropped) {
+						//Check an example below
+						//or examples/file-upload.html
+						return true;
+					}*/
+					/**,before_remove : function() {
+						return true;
+					}*/
+					,
+					preview_error : function(filename, error_code) {
+						//name of the file that failed
+						//error_code values
+						//1 = 'FILE_LOAD_FAILED',
+						//2 = 'IMAGE_LOAD_FAILED',
+						//3 = 'THUMBNAIL_FAILED'
+						//alert(error_code);
+					}
+			
+				}).on('change', function(){
+					//console.log($(this).data('ace_input_files'));
+					//console.log($(this).data('ace_input_method'));
+				});
+				
+			
+				//dynamically change allowed formats by changing before_change callback function
+				$('#id-file-format').removeAttr('checked').on('change', function() {
+					var before_change
+					var btn_choose
+					var no_icon
+					if(this.checked) {
+						btn_choose = "Drop images here or click to choose";
+						no_icon = "icon-picture";
+						before_change = function(files, dropped) {
+							var allowed_files = [];
+							for(var i = 0 ; i < files.length; i++) {
+								var file = files[i];
+								if(typeof file === "string") {
+									//IE8 and browsers that don't support File Object
+									if(! (/\.(jpe?g|png|gif|bmp)$/i).test(file) ) return false;
+								}
+								else {
+									var type = $.trim(file.type);
+									if( ( type.length > 0 && ! (/^image\/(jpe?g|png|gif|bmp)$/i).test(type) )
+											|| ( type.length == 0 && ! (/\.(jpe?g|png|gif|bmp)$/i).test(file.name) )//for android's default browser which gives an empty string for file.type
+										) continue;//not an image so don't keep this file
+								}
+								
+								allowed_files.push(file);
+							}
+							if(allowed_files.length == 0) return false;
+			
+							return allowed_files;
+						}
+					}
+					else {
+						btn_choose = "Drop files here or click to choose";
+						no_icon = "icon-cloud-upload";
+						before_change = function(files, dropped) {
+							return files;
+						}
+					}
+					var file_input = $('#id-input-file-3');
+					file_input.ace_file_input('update_settings', {'before_change':before_change, 'btn_choose': btn_choose, 'no_icon':no_icon})
+					file_input.ace_file_input('reset_input');
+				});
+			
+			
+			
+			
+				$('#spinner1').ace_spinner({value:0,min:0,max:200,step:10, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
+				.on('change', function(){
+					//alert(this.value)
+				});
+				$('#spinner2').ace_spinner({value:0,min:0,max:10000,step:100, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'});
+				$('#spinner3').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
+			
+			
+				
+				$('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
+					$(this).prev().focus();
+				});
+				$('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function(){
+					$(this).next().focus();
+				});
+				
+				$('#timepicker1').timepicker({
+					minuteStep: 1,
+					showSeconds: true,
+					showMeridian: false
+				}).next().on(ace.click_event, function(){
+					$(this).prev().focus();
+				});
+				
+				$('#colorpicker1').colorpicker();
+				$('#simple-colorpicker-1').ace_colorpicker();
+			
+				
+				$(".knob").knob();
+				
+				
+				//we could just set the data-provide="tag" of the element inside HTML, but IE8 fails!
+				var tag_input = $('#form-field-tags');
+				if(! ( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase())) ) 
+				{
+					tag_input.tag(
+					  {
+						placeholder:tag_input.attr('placeholder'),
+						//enable typeahead by specifying the source array
+						source: ace.variable_US_STATES,//defined in ace.js >> ace.enable_search_ahead
+					  }
+					);
+				}
+				else {
+					//display a textarea for old IE, because it doesn't support this plugin or another one I tried!
+					tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
+					//$('#form-field-tags').autosize({append: "\n"});
+				}
+				
+				
+				
+			
+				/////////
+				$('#modal-form input[type=file]').ace_file_input({
+					style:'well',
+					btn_choose:'Drop files here or click to choose',
+					btn_change:null,
+					no_icon:'icon-cloud-upload',
+					droppable:true,
+					thumbnail:'large'
+				})
+				
+				//chosen plugin inside a modal will have a zero width because the select element is originally hidden
+				//and its width cannot be determined.
+				//so we set the width after modal is show
+				$('#modal-form').on('shown.bs.modal', function () {
+					$(this).find('.chosen-container').each(function(){
+						$(this).find('a:first-child').css('width' , '210px');
+						$(this).find('.chosen-drop').css('width' , '210px');
+						$(this).find('.chosen-search input').css('width' , '200px');
+					});
+				})
+				/**
+				//or you can activate the chosen plugin after modal is shown
+				//this way select element becomes visible with dimensions and chosen works as expected
+				$('#modal-form').on('shown', function () {
+					$(this).find('.modal-chosen').chosen();
+				})
+				*/
+			
+			});
+</script>
+
+<?php include "includes/footer.php"; ?>

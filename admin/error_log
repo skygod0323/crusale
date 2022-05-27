@@ -1,0 +1,140 @@
+[05-Sep-2013 11:45:38] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 11:47:12] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 11:48:59] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 12:35:45] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/currency-edit.php on line 23
+[05-Sep-2013 12:44:49] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 12:44:49] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 12:44:57] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 12:44:57] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 12:48:13] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 12:48:13] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 12:52:24] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/currency-edit.php on line 23
+[05-Sep-2013 12:52:40] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/currency-edit.php on line 23
+[05-Sep-2013 12:55:42] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:14:46] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:17:25] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:17:58] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:19:55] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:20:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:20:21] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:20:30] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[05-Sep-2013 14:23:54] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:23:54] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:42] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:42] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:49] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:49] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:53] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:53] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:57] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:28:57] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:31:47] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[05-Sep-2013 14:31:47] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[06-Sep-2013 09:45:21] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[06-Sep-2013 09:51:44] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[06-Sep-2013 09:51:44] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[06-Sep-2013 09:51:54] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/currency-edit.php on line 23
+[06-Sep-2013 10:15:34] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/currency-edit.php on line 23
+[06-Sep-2013 12:08:44] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[06-Sep-2013 12:08:44] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[06-Sep-2013 12:08:48] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[06-Sep-2013 12:08:48] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[06-Sep-2013 17:00:12] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 70
+[06-Sep-2013 17:00:21] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 70
+[06-Sep-2013 17:00:24] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 70
+[06-Sep-2013 17:01:47] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 70
+[06-Sep-2013 17:04:42] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 71
+[06-Sep-2013 17:04:44] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 71
+[06-Sep-2013 17:04:47] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 71
+[06-Sep-2013 17:04:50] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 71
+[06-Sep-2013 17:04:54] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 71
+[06-Sep-2013 17:04:57] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 71
+[06-Sep-2013 17:18:57] PHP Parse error:  syntax error, unexpected $end in /home4/videejob/public_html/admin/cus_faq.php on line 70
+[08-Sep-2013 10:17:56] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[08-Sep-2013 10:17:56] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/user-details.php on line 0
+[09-Sep-2013 12:48:48] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[09-Sep-2013 12:50:39] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[09-Sep-2013 12:50:50] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 0
+[09-Sep-2013 12:54:32] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 65
+[09-Sep-2013 12:55:57] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 65
+[09-Sep-2013 12:56:24] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 65
+[09-Sep-2013 12:56:48] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 65
+[09-Sep-2013 12:57:45] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/videejob/public_html/admin/lib/pagination.php:1) in /home4/videejob/public_html/admin/change-pass.php on line 65
+[10-Sep-2013 12:06:30] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:30] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:36] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:36] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:40] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:40] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:45] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:45] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:49] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:49] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:52] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[10-Sep-2013 12:06:52] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home4/videejob/public_html/admin/project-details.php on line 0
+[21-Sep-2013 11:26:43 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/videejob/public_html/admin/lib/pagination.php:1) in /home/videejob/public_html/admin/change-pass.php on line 65
+[28-Sep-2013 07:03:59 America/Chicago] PHP Fatal error:  Class 'SimpleImage' not found in /home/videejob/public_html/admin/memplan-add.php on line 104
+[28-Sep-2013 07:04:11 America/Chicago] PHP Fatal error:  Class 'SimpleImage' not found in /home/videejob/public_html/admin/memplan-add.php on line 104
+[28-Sep-2013 07:07:31 America/Chicago] PHP Parse error:  syntax error, unexpected $end in /home/videejob/public_html/admin/cus_faq.php on line 70
+[28-Sep-2013 07:37:35 America/Chicago] PHP Parse error:  syntax error, unexpected $end in /home/videejob/public_html/admin/cus_faq.php on line 70
+[28-Sep-2013 07:39:15 America/Chicago] PHP Parse error:  syntax error, unexpected $end in /home/videejob/public_html/admin/cus_faq.php on line 70
+[28-Sep-2013 07:55:34 America/Chicago] PHP Parse error:  syntax error, unexpected $end in /home/videejob/public_html/admin/cus_faq.php on line 70
+[28-Sep-2013 07:58:27 America/Chicago] PHP Parse error:  syntax error, unexpected $end in /home/videejob/public_html/admin/cus_faq.php on line 70
+[28-Sep-2013 09:45:22 America/Chicago] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/videejob/public_html/admin/faq_category_edit.php on line 21
+[28-Sep-2013 09:46:04 America/Chicago] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/videejob/public_html/admin/faq_category_edit.php on line 21
+[28-Sep-2013 09:46:17 America/Chicago] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/videejob/public_html/admin/faq_category_edit.php on line 21
+[05-Oct-2021 20:07:20 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 20
+[05-Oct-2021 20:07:20 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 20
+[05-Oct-2021 20:07:20 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 152
+[05-Oct-2021 20:14:14 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[05-Oct-2021 20:14:14 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[05-Oct-2021 20:14:14 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 137
+[05-Oct-2021 21:04:21 UTC] PHP Warning:  unlink() has been disabled for security reasons in /home/crusale/public_html/admin/setting-edit.php on line 60
+[05-Oct-2021 21:09:19 UTC] PHP Warning:  unlink() has been disabled for security reasons in /home/crusale/public_html/admin/setting-edit.php on line 60
+[13-Oct-2021 18:36:21 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[13-Oct-2021 18:36:21 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[13-Oct-2021 18:36:21 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 137
+[13-Oct-2021 21:00:03 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/social-view.php on line 19
+[13-Oct-2021 21:00:03 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/social-view.php on line 19
+[13-Oct-2021 21:00:03 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/social-view.php on line 131
+[13-Oct-2021 21:00:05 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[13-Oct-2021 21:00:05 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[13-Oct-2021 21:00:05 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 137
+[13-Oct-2021 21:00:16 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 20
+[13-Oct-2021 21:00:16 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 20
+[13-Oct-2021 21:00:16 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 152
+[13-Oct-2021 21:01:27 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[13-Oct-2021 21:01:27 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[13-Oct-2021 21:01:27 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 139
+[13-Oct-2021 21:01:30 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/closed-dispute.php on line 19
+[13-Oct-2021 21:01:30 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/closed-dispute.php on line 19
+[13-Oct-2021 21:01:30 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/closed-dispute.php on line 139
+[30-Mar-2022 05:00:30 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 20
+[30-Mar-2022 05:00:30 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 20
+[30-Mar-2022 05:00:30 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/testi-view.php on line 152
+[30-Mar-2022 05:00:35 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[30-Mar-2022 05:00:35 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[30-Mar-2022 05:00:35 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 137
+[30-Mar-2022 05:00:38 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/social-view.php on line 19
+[30-Mar-2022 05:00:38 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/social-view.php on line 19
+[30-Mar-2022 05:00:38 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/social-view.php on line 131
+[30-Mar-2022 05:07:50 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[30-Mar-2022 05:07:50 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[30-Mar-2022 05:07:50 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 139
+[30-Mar-2022 05:07:52 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/closed-dispute.php on line 19
+[30-Mar-2022 05:07:52 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/closed-dispute.php on line 19
+[30-Mar-2022 05:07:52 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/closed-dispute.php on line 139
+[12-May-2022 21:25:05 UTC] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/crusale/public_html/admin/project-details.php on line 128
+[12-May-2022 21:25:28 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[12-May-2022 21:25:28 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[12-May-2022 21:25:28 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 139
+[17-May-2022 22:51:06 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[17-May-2022 22:51:06 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[17-May-2022 22:51:06 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 137
+[17-May-2022 22:51:23 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[17-May-2022 22:51:23 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 18
+[17-May-2022 22:51:23 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/homepic-view.php on line 137
+[26-May-2022 19:23:59 UTC] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/crusale/public_html/admin/project-details.php on line 128
+[27-May-2022 07:39:21 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[27-May-2022 07:39:21 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 19
+[27-May-2022 07:39:21 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/crusale/public_html/admin/open-dispute.php on line 139
