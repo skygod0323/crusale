@@ -107,7 +107,7 @@ class addProduct{
                 pb_type ='".$this->pb_type."',
                 pb_minprice ='".$this->pb_minprice."',
                 pb_maxprice ='".$this->pb_maxprice."',
-                pb_rate ='".$this->pb_rate."',
+                pb_rate ='".(float)$this->pb_rate."',
                 pb_duration ='".$this->pb_duration."',
                 pb_status ='1'";
 						
