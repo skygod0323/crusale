@@ -18,8 +18,8 @@ class editUser{
 	var $usr_fname;
 	var $usr_lname;
 	var $usr_address;
-	var $cn_id;
-	var $usr_ct_id;
+	var $usr_cn_id;
+	var $usr_city;
 	var $usr_state;
 	var $usr_postalcode;
 	var $usr_phone;
@@ -35,7 +35,7 @@ class editUser{
 	}
 	function valid()
       {
-	include "language.php";
+		include "language.php";
 		$valid=true;
 			
 		if($this->usr_fname == "")
@@ -63,12 +63,12 @@ class editUser{
 			$this->msg= '<div class="alert alert-danger"><i class="icon-remove"></i> '.$lang[143].'</div>';
 			$valid=false;
 		}
-		else if($this->cn_id == "" || $this->cn_id == "0")
+		else if($this->usr_cn_id == "" || $this->usr_cn_id == "0")
 		{
 			$this->msg= '<div class="alert alert-danger"><i class="icon-remove"></i> '.$lang[144].'</div>';
 			$valid=false;
 		}
-		else if($this->usr_ct_id == "" || $this->usr_ct_id == "0")
+		else if($this->usr_city == "")
 		{
 			$this->msg= '<div class="alert alert-danger"><i class="icon-remove"></i> '.$lang[145].'</div>';
 			$valid=false;
@@ -138,7 +138,8 @@ class editUser{
 							usr_fname ='".$this->usr_fname."',
 							usr_lname ='".$this->usr_lname."',
 							usr_address ='".$this->usr_address."',
-							usr_ct_id ='".$this->usr_ct_id."',
+							usr_city ='".$this->usr_city."',
+							usr_cn_id ='".$this->usr_cn_id."',
 							usr_state='".$this->usr_state."',
 							usr_postalcode='".$this->usr_postalcode."',
 							usr_phone='".$this->usr_phone."',
@@ -163,7 +164,8 @@ class editUser{
 				usr_fname ='".$this->usr_fname."',
 				usr_lname ='".$this->usr_lname."',						
 				usr_address ='".$this->usr_address."',
-				usr_ct_id ='".$this->usr_ct_id."',
+				usr_city ='".$this->usr_city."',
+				usr_cn_id ='".$this->usr_cn_id."',
 				usr_state='".$this->usr_state."',
 				usr_postalcode='".$this->usr_postalcode."',
 				usr_phone='".$this->usr_phone."',
@@ -192,8 +194,8 @@ if(isset($_POST['submit_id']))
 	$ob->usr_fname=addslashes(trim($_POST['usr_fname']));	
 	$ob->usr_lname=addslashes(trim($_POST['usr_lname']));	
 	$ob->usr_address=addslashes(trim($_POST['usr_address']));	
-	$ob->cn_id=addslashes(trim($_POST['cn_id']));	
-	$ob->usr_ct_id=addslashes(trim($_POST['usr_ct_id']));	
+	$ob->usr_cn_id=addslashes(trim($_POST['cn_id']));	
+	$ob->usr_city=addslashes(trim($_POST['usr_city']));	
 	$ob->usr_state=addslashes(trim($_POST['usr_state']));	
 	$ob->usr_postalcode=addslashes(trim($_POST['usr_postalcode']));	
 	$ob->usr_phone=addslashes(trim($_POST['usr_phone']));	
@@ -203,7 +205,7 @@ if(isset($_POST['submit_id']))
 		$ob->update();
 	}
 	$_SESSION['msg']=$ob->msg;
-	
+
 	header("Location:changeuserinfo.php");
 }
 
@@ -241,7 +243,8 @@ if(isset($_POST['submit_id']))
                                 <div class="job-title nocover hidden-sm hidden-xs"><h5><?php echo $lang[154]; ?></h5></div>
                                 <form name="changeuserinfoform" id="changeuserinfoform" class="form-horizontal" method="post" action="" enctype="multipart/form-data" onSubmit="return validUserInfo();">
                                     <div class="row">
-                                        <div class="col-md-12 col-sm-12">                   
+                                        <div class="col-md-12 col-sm-12">    
+											<div class="signup-form-str" id="msg"><?php if (isset($msg)) { echo $msg; }?></div>               
                                             <label class="control-label"><?php echo $lang[155]; ?></label>
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                                 <div class="fileupload-preview thumbnail">
@@ -275,36 +278,18 @@ if(isset($_POST['submit_id']))
 											<br>
 											<label class="control-label"><?php echo $lang[159]; ?> <span style="color:#F00;">*</span> </label>
                                             <?php
-											//usr_ct_id=ct_id and ct_cn_id=cn_id
-												$sql_cn_ct_usr="select * from city,country where ct_cn_id=cn_id and ct_id='".$row->usr_ct_id."'";
-												$res_cn_ct_usr=mysql_query($sql_cn_ct_usr);
-												$row_cn_ct_usr=mysql_fetch_object($res_cn_ct_usr);
-											
 												$sql_cn="select * from country where cn_status=1 order by cn_name";
 												$res_cn=mysql_query($sql_cn);
 											?>
-											<select name="cn_id" id="cn_id" class="form-control" onChange="showCity(this.value)"> 
+											<select name="cn_id" id="cn_id" class="form-control"> 
 												<option value="0">(<?php echo $lang[160]; ?>)</option> 
-												<?php	while($row_cn=mysql_fetch_object($res_cn)){	?>
-												<option value="<?php echo $row_cn->cn_id; ?>" <?php if($row_cn->cn_id == $cn_id){ ?> selected="selected" <?php }else if($row_cn->cn_id == $row_cn_ct_usr->cn_id){ ?> selected="selected" <?php } ?>><?php echo ucfirst($row_cn->cn_name); ?></option>
+												<?php	while($row_cn=mysql_fetch_object($res_cn)){ ?>
+													<option value="<?php echo $row_cn->cn_id; ?>" <?php if($row_cn->cn_id == $row->usr_cn_id) { ?> selected="selected" <?php }  ?>><?php echo ucfirst($row_cn->cn_name); ?></option>
 												<?php } ?>
 											</select>
 											<br>
 											<label class="control-label"><?php echo $lang[161]; ?> <span style="color:#F00;">*</span> </label>
-                                            <?php
-												if($cn_id != ''){
-													$sql_ct="select * from city where ct_cn_id='".$cn_id."' order by ct_name";
-												}else{
-													$sql_ct="select * from city where ct_cn_id='".$row_cn_ct_usr->cn_id."' order by ct_name";
-												}
-												$res_ct=mysql_query($sql_ct);
-											?>
-												<select name="usr_ct_id" id="usr_ct_id" class="form-control"> 
-													<option value="0">(<?php echo $lang[162]; ?>)</option>
-													<?php	while($row_ct=mysql_fetch_object($res_ct)){	?>
-													<option value="<?php echo $row_ct->ct_id; ?>" <?php if($row_ct->ct_id == $usr_ct_id){ ?> selected="selected" <?php } else if($row_ct->ct_id == $row->usr_ct_id){ ?> selected="selected" <?php } ?>><?php echo ucfirst($row_ct->ct_name); ?></option>
-													<?php } ?>
-												</select>
+                                            <input name="usr_city" id="usr_city" type="text" class="form-control" value="<?php echo $row->usr_city; ?>"/>
 											<br>
 											<label class="control-label"><?php echo $lang[163]; ?> <span style="color:#F00;">*</span> </label>
                                             <input name="usr_state" id="usr_state" type="text" class="form-control" value="<?php echo $row->usr_state; ?>"/>
