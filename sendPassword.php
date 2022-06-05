@@ -18,6 +18,7 @@ else
 	$login_res=mysql_query($login_sql);		
 	if(mysql_num_rows($login_res)>0)
 	{
+		$row_sql = mysql_fetch_object($login_res);
 		$pass=createRandomPassword(1);
 		$newpass=rand(10,99).md5($pass);
 			
@@ -35,6 +36,7 @@ else
 		$mailsubject = $lang[251];
 		$mailbody = $lang[252]."<br>";
 		$mailbody .= $lang[253].$usr_email;
+		$mailbody .= "<br>".$lang[829].$row_sql->usr_name;
 		$mailbody .= "<br>".$lang[254].$pass;
 		$headers  = "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";

@@ -199,7 +199,7 @@ if(isset($_POST['btnSave']))
 										if(mysql_num_rows($res_adv)>0){?>
 											<ul>
 												<li>
-														<?php$row_adv=mysql_fetch_object($res_adv);?>
+														<?php $row_adv=mysql_fetch_object($res_adv);?>
 														<a href="<?php echo $row_adv->adv_link; ?>" target="blank"><img src="upload/advertisement/<?php echo $row_adv->adv_img; ?>" height="<?php echo $row_adv->adv_imageheight; ?>" width="<?php echo $row_adv->adv_imagewidth; ?>"/></a>
 												</li>
 											</ul>
