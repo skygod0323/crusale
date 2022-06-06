@@ -95,9 +95,15 @@ class addUserPortfolio{
 			}
 			else
 			{
-				$this->up_file='pfolio'.rand(0,9999).trim(addslashes($_FILES['up_file']['name']));	
+				$this->up_file='pfolio'.rand(0,9999).trim(addslashes($_FILES['up_file']['name']));
 				
-				$ds = move_uploaded_file($_FILES["up_file"]["tmp_name"], "images/users/portfolio/".$this->up_file) or die('error');
+				$handle = fopen($_FILES["up_file"]["tmp_name"], "r");
+				$contents = fread($handle, filesize($_FILES["up_file"]["tmp_name"])) or die('unable to read');
+
+				$imgFile = fopen("images/users/portfolio/".$this->up_file, "w") or die("Unable to open file!");
+				fwrite($imgFile, $contents);
+				fclose($imgFile) or die("Unable to upload file");
+				
 				
 				$sql="insert into user_portfolio
 					set	

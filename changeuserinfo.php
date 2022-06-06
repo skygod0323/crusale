@@ -9,7 +9,6 @@ if($_SESSION['uid']=='')
 {
 	header("Location:login.php");
 }
-
 class editUser{
 
 	var $msg;	
@@ -128,33 +127,34 @@ class editUser{
 				$this->usr_image='usr-'.rand(0,9999).trim(addslashes($_FILES['usr_image']['name']));	
 //				$imgSImage->save("../upload/logo/small/".$this->al_logo);
 				
-				$ds = move_uploaded_file($_FILES["usr_image"]["tmp_name"], "images/users/".$this->usr_image) or die('error');	
-						
-				if($ds)
-				{
-					$sql="update user
-						set				
-							usr_image ='".$this->usr_image."',
-							usr_fname ='".$this->usr_fname."',
-							usr_lname ='".$this->usr_lname."',
-							usr_address ='".$this->usr_address."',
-							usr_city ='".$this->usr_city."',
-							usr_cn_id ='".$this->usr_cn_id."',
-							usr_state='".$this->usr_state."',
-							usr_postalcode='".$this->usr_postalcode."',
-							usr_phone='".$this->usr_phone."',
-							usr_updated_date = now()
-						where usr_id='".$this->usr_id."'";
-					mysql_query($sql) or die(mysql_error());
-					
-					$_SESSION['img']=$this->usr_image;
-					
-					$this->msg='<div class="alert alert-success"><i class="icon-ok"></i> '.$lang[152].'</font>';	
-				}
-				else
-				{
-					$this->msg='<div class="alert alert-danger"><i class="icon-remove"></i> '.$lang[153].'</div>';
-				}
+				// $ds = move_uploaded_file($_FILES["usr_image"]["tmp_name"], "images/users/".$this->usr_image) or die('error');	
+
+				$handle = fopen($_FILES["usr_image"]["tmp_name"], "r");
+				$contents = fread($handle, filesize($_FILES["usr_image"]["tmp_name"])) or die('unable to read');
+
+				$imgFile = fopen("images/users/".$this->usr_image, "w") or die("Unable to open file!");
+				fwrite($imgFile, $contents);
+				fclose($imgFile) or die("Unable to upload file");
+				
+				$sql="update user
+					set				
+						usr_image ='".$this->usr_image."',
+						usr_fname ='".$this->usr_fname."',
+						usr_lname ='".$this->usr_lname."',
+						usr_address ='".$this->usr_address."',
+						usr_city ='".$this->usr_city."',
+						usr_cn_id ='".$this->usr_cn_id."',
+						usr_state='".$this->usr_state."',
+						usr_postalcode='".$this->usr_postalcode."',
+						usr_phone='".$this->usr_phone."',
+						usr_updated_date = now()
+					where usr_id='".$this->usr_id."'";
+				mysql_query($sql) or die(mysql_error());
+				
+				$_SESSION['img']=$this->usr_image;
+				
+				$this->msg='<div class="alert alert-success"><i class="icon-ok"></i> '.$lang[152].'</font>';	
+			
 			}		
 		}
 		else
@@ -249,9 +249,9 @@ if(isset($_POST['submit_id']))
                                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                                 <div class="fileupload-preview thumbnail">
 													<?php if($row->usr_image == ''){ ?>
-														<img id="unknow_img_id" class="" style="border: 1px solid rgb(204, 204, 204);" src="images/unknown.png" width="280px" height="280px"/>
+														<img id="userimage_preview" class="" style="border: 1px solid rgb(204, 204, 204);" src="images/unknown.png" width="280px" height="280px"/>
 													<?php } else { ?>
-														<img id="unknow_img_id" class="" style="border: 1px solid rgb(204, 204, 204);" src="images/users/<?php echo $row->usr_image; ?>" width="280px" height="280px"/>
+														<img id="userimage_preview" class="" style="border: 1px solid rgb(204, 204, 204);" src="images/users/<?php echo $row->usr_image; ?>" width="280px" height="280px"/>
 													<?php } ?>
 												</div>
 												
@@ -259,7 +259,7 @@ if(isset($_POST['submit_id']))
                                                 <span class="btn btn-default btn-file">
                                                     <span class="fileupload-new">Select Photo</span>
                                                     <span class="fileupload-exists">Change</span>
-                                                    <input multiple="" type="file" id="id-input-file-3" name="usr_image"/>
+                                                    <input multiple="" type="file" id="id-input-file-3" name="usr_image" onChange="imageFileChange(this)"/>
                                                 </span>
                                                 
                                             </div>
@@ -438,6 +438,25 @@ function showCity(str)
 	$.get("showCity.php", {q:str},	function(data){	$('#usr_ct_id').html(data);	 });
 }
 </script>
+
+<script>
+	function imageFileChange(selected) {
+		console.log('image file change', selected.files[0]);
+
+		const reader = new FileReader();
+        const f = selected.files[0];
+        if (reader !== undefined && f !== undefined) {
+            reader.onloadend = () => {
+                console.log(reader.result);
+
+				$('#userimage_preview').attr("src", reader.result);
+            }
+            reader.readAsDataURL(f);
+        }
+	}
+</script>
+
+
 		<!-- inline scripts related to this page -->
                     <script type="text/javascript">
 			jQuery(function($) {
@@ -584,9 +603,10 @@ function showCity(str)
 						//alert(error_code);
 					}
 			
-				}).on('change', function(){
+				}).on('change', function(e){
 					//console.log($(this).data('ace_input_files'));
 					//console.log($(this).data('ace_input_method'));
+					console.log('file change: ', e);
 				});
 				
 			

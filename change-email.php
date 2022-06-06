@@ -103,7 +103,7 @@ if(isset($_POST['btnSave']))
 	}
 	$adn=new emailSetting( addslashes(trim($_POST['usr_email'])), $notify_email );
 
-	if($adn->valid() && $adn->checkExistingUser()){	
+	if($adn->valid() && ($row->$usr_email == $adn->usr_email || $adn->checkExistingUser())){	
 		$adn->add();		
 	}
 	//echo $ecms->msg;
